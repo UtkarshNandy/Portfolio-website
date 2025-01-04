@@ -8,6 +8,15 @@ export default {
   ],
   theme: {
     extend: {
+      animation: {
+        bounceSubtle: "bounceSubtle 2s infinite",
+      },
+      keyframes: {
+        bounceSubtle: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
