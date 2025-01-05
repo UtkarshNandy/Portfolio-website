@@ -4,21 +4,18 @@ import { useInView } from "react-intersection-observer";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "700"], // Include thinner (300) and thicker (700) weights
+  weight: ["300", "700"],
 });
 
 const Aboutme = () => {
-  // Use Intersection Observer hooks
   const { ref: ref1, inView: inView1 } = useInView({
-    triggerOnce: true, // Animates only once
-    threshold: 0.2, // Animation triggers when 20% of the element is visible
+    triggerOnce: true,
+    threshold: 0.2,
   });
-
   const { ref: ref2, inView: inView2 } = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
-
   const { ref: ref3, inView: inView3 } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -27,17 +24,25 @@ const Aboutme = () => {
   return (
     <div className="flex flex-row justify-center items-start space-x-32 mt-96 text-2xl">
       <div>
+        {/* Header */}
         <h1
-          className={`text-white text-5xl font-bold animate-bounceSubtle ${poppins.className}`}
+          ref={ref1}
+          className={` text-5xl font-bold ${poppins.className} ${
+            inView1
+              ? "animate-slideDown opacity-100 transition-all delay-1000 animate-bounceIndefinitely"
+              : "opacity-0"
+          }`}
         >
           Bio
         </h1>
+        {/* Paragraph */}
         <p
-          ref={ref1}
           className={`${
             poppins.className
-          } w-64 mt-5 text-white font-light transition-all duration-700 ${
-            inView1 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+          } w-64 mt-5  font-light transition-all duration-700 ${
+            inView1
+              ? "opacity-100 translate-y-0 delay-1000"
+              : "opacity-0 translate-y-10"
           }`}
         >
           I am a fourth-year computer science student at UC Davis. I decided to
@@ -48,17 +53,25 @@ const Aboutme = () => {
       </div>
 
       <div>
+        {/* Header */}
         <h1
-          className={`text-white text-5xl font-bold animate-bounceSubtle ${poppins.className}`}
+          ref={ref2}
+          className={` text-5xl font-bold ${poppins.className} ${
+            inView2
+              ? "animate-slideDown opacity-100 transition-all delay-1000 animate-bounceIndefinitely"
+              : "opacity-0"
+          }`}
         >
           Hobbies
         </h1>
+        {/* Paragraph */}
         <p
-          ref={ref2}
           className={`${
             poppins.className
-          } w-64 mt-5 text-white font-light transition-all duration-700 ${
-            inView2 ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+          } w-64 mt-5  font-light transition-all duration-700 ${
+            inView2
+              ? "opacity-100 translate-y-0 delay-1000"
+              : "opacity-0 translate-y-10"
           }`}
         >
           In my free time, I enjoy reading philosophy, trying different
@@ -70,17 +83,25 @@ const Aboutme = () => {
       </div>
 
       <div>
+        {/* Header */}
         <h1
-          className={`text-white text-5xl font-bold animate-bounceSubtle ${poppins.className}`}
+          ref={ref3}
+          className={` text-5xl font-bold ${poppins.className} ${
+            inView3
+              ? "animate-slideDown opacity-100 transition-all delay-1000 animate-bounceIndefinitely"
+              : "opacity-0"
+          }`}
         >
           Future
         </h1>
+        {/* Paragraph */}
         <p
-          ref={ref3}
           className={`${
             poppins.className
-          } w-64 mt-5 text-white font-light transition-all duration-700 ${
-            inView3 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+          } w-64 mt-5 font-light transition-all duration-700 ${
+            inView3
+              ? "opacity-100 translate-y-0 delay-1000"
+              : "opacity-0 translate-y-10"
           }`}
         >
           In the future, I plan on either pursuing a job in the software

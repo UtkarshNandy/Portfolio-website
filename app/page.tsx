@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import Intro from "@/components/Intro";
 import Aboutme from "@/components/Aboutme";
+import Projects from "@/components/Projects";
 
 // Dynamically import the Vanta background component
 const VantaGlobe = dynamic(() => import("@/components/Background"), {
@@ -12,10 +13,6 @@ const VantaGlobe = dynamic(() => import("@/components/Background"), {
 export default function Home() {
   return (
     <main style={{ position: "relative" }}>
-      {/* The Vanta background is positioned absolutely */}
-      <VantaGlobe />
-
-      {/* Stack your content */}
       <div
         style={{
           position: "relative",
@@ -42,6 +39,15 @@ export default function Home() {
           }}
         >
           <Aboutme />
+        </section>
+
+        <section
+          style={{
+            minHeight: "100vh",
+            padding: "2rem", // Optional padding for Aboutme content
+          }}
+        >
+          <Projects />
         </section>
       </div>
     </main>
